@@ -8,17 +8,14 @@ public class Main {
 
         while (true) {
             TicketMachine ticketMachine = new TicketMachine();
-            String postalCode = "";
+            String postalCode;
 
             System.out.println("--- Willkommen beim Ticketautomaten ---");
 
-            while (true) {
+            do {
                 System.out.print("Bitte geben Sie eine Postleitzahl ein (8000, 3000, 1000, 8303, 8953): ");
                 postalCode = scanner.nextLine();
-                if (ticketMachine.selectDestination(postalCode)) {
-                    break;
-                }
-            }
+            } while (!ticketMachine.selectDestination(postalCode));
 
             System.out.print("Bitte wählen Sie einen Tickettyp (½ Preis, 1. Klasse, 2. Klasse): ");
             String ticketType = scanner.nextLine();
